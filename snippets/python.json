@@ -1,0 +1,22 @@
+{
+	"LeetCode Python Template": {
+		"prefix": "lcpy",
+		"body": [
+			"from typing import *",
+			"",
+			"# 复制力扣的代码到这里，然后进行编辑",
+			"",
+			"",
+			"if __name__ == '__main__':",
+			"    # 测试代码写在这里",
+			"    solve = Solution()",
+			"    ans = (",
+			"        # 测试用例写在这里",
+			"",
+			"    )",
+			"    print(solve.solve(ans))",
+			"$2"
+		],
+		"description": "快速生成力扣Python解法模板"
+	}
+}

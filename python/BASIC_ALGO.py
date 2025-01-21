@@ -69,3 +69,7 @@ def combine(n: int, k: int) -> list[list[int]]:
             vis[i] = 0
     dfs(0, 1)
     return res
+
+## 递归
+# 记忆化搜索
+from functools import lru_cache, cache
