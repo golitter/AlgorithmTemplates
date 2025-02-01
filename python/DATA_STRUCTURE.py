@@ -27,3 +27,17 @@ heappop(heap) # 从堆中弹出元素
 heapify(heap) # 将列表转换为堆（结构） O(n) 这个操作是原地的，不会返回新的堆对象
 heapreplace(heap, 1) # 弹出最小的元素并将新元素推入堆中
 heap[0] # 获取堆顶元素
+# 自定义堆
+class selfHeap:
+    __slots__ = ['a', 'b']
+    def __init__(self, a, b):
+        self.a = a; self.b = b
+    def __lt__(self, rhs:'selfHeap') -> bool:
+        """
+        True: self < rhs
+        False: self >= rhs
+        """
+        if self.a == rhs.a: return self.b < rhs.b
+        return self.a < rhs.a
+    def __str__(self) -> str:
+        return str(self.a) + ' ' + str(self.b)
