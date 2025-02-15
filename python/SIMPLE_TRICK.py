@@ -7,6 +7,15 @@ f"{ans:.2e}" # 科学计数法
 f"{ans:0>2}" # 右对齐，左边补0
 f"{a:0>10.2f}" 右对齐，左边补0，保留两位小数  0000003.00
 """
+### 浅拷贝、深拷贝
+# 浅拷贝
+a = [1,2,3]
+b = a.copy()
+b = a[:]
+# 深拷贝
+import copy
+b = copy.deepcopy(a)
+
 ### 开数组
 dp = [[0] * 10 for _ in range(10)]
 dp = [[0] * 10] * 10 # 这样开数组会导致每一行都是同一个引用，修改一行会导致所有行都被修改
@@ -42,3 +51,7 @@ class selfHeap:
         return self.a < rhs.a
     def __str__(self) -> str:
         return str(self.a) + ' ' + str(self.b)
+### 翻转
+a.reverse() # 原地翻转
+a = a[::-1] # 返回新列表
+a = list(reversed(a)) # 返回新列表
