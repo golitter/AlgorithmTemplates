@@ -24,6 +24,9 @@ dp = [[0] * 10] * 10 # 这样开数组会导致每一行都是同一个引用，
 # 快读
 import sys
 input = sys.stdin.readline
+# 重定向输入输出
+sys.stdin = open("in.txt", "r")
+sys.stdout = open("out.txt", "w")
 # 读取一行数字
 a = list(map(int, input().split()))
 # 读取多行数字
