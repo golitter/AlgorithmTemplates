@@ -21,6 +21,9 @@ dp = [[0] * 10 for _ in range(10)]
 dp = [[0] * 10] * 10 # 这样开数组会导致每一行都是同一个引用，修改一行会导致所有行都被修改
 
 ### 输入输出
+# 快读
+import sys
+input = sys.stdin.readline
 # 读取一行数字
 a = list(map(int, input().split()))
 # 读取多行数字

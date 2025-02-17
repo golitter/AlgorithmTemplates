@@ -41,3 +41,16 @@ class selfHeap:
         return self.a < rhs.a
     def __str__(self) -> str:
         return str(self.a) + ' ' + str(self.b)
+
+### 并查集
+class Dsu:
+    def __init__(self, n):
+        self.p = list(range(n + 21))
+    def find(self, x):
+        if self.p[x] != x:
+            self.p[x] = self.find(self.p[x])
+        return self.p[x]
+    def union(self, x, y):
+        fx = self.find(x); fy = self.find(y)
+        if fx != fy:
+            self.p[fx] = fy
