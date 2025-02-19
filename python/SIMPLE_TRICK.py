@@ -39,10 +39,23 @@ alp = [ chr(x + ord('a')) for x in range(26) ]
 alp_num = list(map(ord, alp))
 
 ### 排序
-a = []
+a = [
+    [1,2],
+    [3,4],
+    [2,4],
+    [3,7]
+]
 a.sort() # 默认升序 从小到大 原地排序
-a.sort(key=lambda x: (x[0], -x[1])) # 先按第一个元素升序，再按第二个元素降序 原地排序
+a.sort(key=lambda x: (-x[0], x[1])) # 先按第一个元素降序，再按第二个元素升序 原地排序
 a = sorted(a, key=lambda x: (x[0], -x[1])) # 先按第一个元素升序，再按第二个元素降序 返回排序后的新列表
+# 使用cmp_to_key
+from functools import cmp_to_key # -1 0 1 从小到大 从大到小
+def cmp(a, b):
+    if a[0] == b[0]: 
+        return a[1] - b[1] # 从小到大
+    return b[0] - a[0] # 从大到小
+c = a[:]
+c.sort(key=cmp_to_key(cmp))
 # 自定义复杂排序规则
 class selfHeap:
     __slots__ = ['a', 'b']
