@@ -81,15 +81,20 @@ void test1() { // 重复数字一样 1 222 222     -----> 1 2 2 url: https://www
     for(int i = 1; i <= n; ++i) {
         last[i] = lower_bound(id+1, id+cnt+1, a[i]) - id;
     }
-    {        // STL处理
-            // n
-        vector<int> a,id,last; id.assign(a.begin(), a.end());
-        sort(id.begin(), id.end());
-        id.erase(unique(id.begin(), id.end()), id.end());
-        for(int i = 0; i < n; ++i) {
-            last[i] = lower_bound(id.begin(), id.end(),a[i]) - id.begin();
+
+        // STL 实现
+    {
+        vector<int> a({1,2,3,555,4,33,33,10}); // 测试数据 
+        vector<int> id(a), last(a); // id 用于存储 a 中的唯一元素，last 用于存储每个元素在 id 中的索引 == 声明并初始化
+        sort(id.begin(), id.end()); // 对 id 进行排序
+        id.erase(unique(id.begin(), id.end()), id.end()); // 删除 id 中的重复元素
+        for(int i = 0; i < a.size(); ++i) { // 遍历 a 中的每个元素
+            // 使用 lower_bound 查找 a[i] 在 id 中的位置
+            last[i] = lower_bound(id.begin(), id.end(), a[i]) - id.begin();
         }
+        for(auto &t: last) cout<<t<<' ';
     }
+
 }
 
 void solve() {
