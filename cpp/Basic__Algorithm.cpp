@@ -214,6 +214,7 @@ namespace STL {
 void Vector() {
     /**
      * vector<int> vi || vi(n)
+            初始化  vector<int> v(n) - 此时默认n个元素且值为0   v(n,v) - 此时默认n个元素且值为v
      * size()     返回元素个数
      * clear()    清空
      * front() back()   第一个，最后一个元素
