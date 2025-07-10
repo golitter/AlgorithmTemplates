@@ -379,4 +379,50 @@ namespace Bfs_Dfs {
 // void bfs() {
 //     // queue
 // }
+
+
+int T() // 全排列 组合 模板
+{
+    // 全排列
+    // int n; cin>>n;
+    // vector<int> p(n + 1), vis(n + 1);
+    // auto dfs = [&](auto &&self, int stp) -> void {
+    //     if(stp == n + 1) {
+    //         for(int i = 1; i <= n; ++i) {
+    //             printf("%5d",p[i]);
+    //         }
+    //         cout<<endl;
+    //         return ;
+    //     }
+    //     for(int i = 1; i <= n; ++i) {
+    //         if(vis[i]) continue;
+    //         vis[i] = 1;
+    //         p[stp] = i;
+    //         self(self, stp + 1);
+    //         vis[i] = 0;
+    //     }
+    // };
+    // dfs(dfs, 1);
+
+    // 组合
+    int n,m; cin>>n>>m;
+    vector<int> vis(n + 1);
+    auto dfs = [&](auto &&self, int stp, int st) -> void {
+        if(stp == m + 1) {
+            for(int i = 1; i <= n; ++i) {
+                if(!vis[i]) continue;
+                printf("%3d",i);
+            }
+            cout<<endl;
+            return ;
+        }
+        for(int i = st; i <= n; ++i) {
+            if(vis[i]) continue;
+            vis[i] = 1;
+            self(self, stp + 1, i + 1);
+            vis[i] = 0;
+        }
+    };
+    dfs(dfs,1,1);
+}
 }}
