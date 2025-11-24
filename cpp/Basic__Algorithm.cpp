@@ -65,6 +65,13 @@ void solve() {
             else r = mid - 1;
         } // output: l
     }
+
+    // cpp的lower_bound和upper_bound
+    // lower_bound: 返回第一个大于等于给定值的迭代器
+    // upper_bound: 返回第一个大于给定值的迭代器
+    // it != a.end() 表示找到了符合条件的元素
+    // it != a.begin() 表示it这个元素不是第一个元素
+    // index: distance(a.begin(), it) 返回it在a中的索引
 }
 
 }}
