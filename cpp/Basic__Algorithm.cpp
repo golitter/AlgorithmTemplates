@@ -226,6 +226,11 @@ void Vector() {
      * clear()    清空
      * front() back()   第一个，最后一个元素
      * []
+
+     vector模拟stack
+        * push_back()
+        * pop_back()
+        * back()
     */
 }
 void String() {
