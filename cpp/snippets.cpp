@@ -36,7 +36,19 @@ typedef pair<int,int> PII;
 
 const int INF = 0x3f3f3f3f;
 const int N = 2e5 + 21;
-
+/**
+ 注意 Adt v;
+	1.初始化： v = {a, s}; ok
+	2.赋值： v = {a, s}; error. 需要 v = Adt{a, s};
+	建议：统一使用 v = Adt{a, s}; 这种方式，避免混淆
+*/
+struct Adt {
+    int a;
+    string s;
+    bool operator<(const Adt& rhs) const {
+        return a > rhs.a;
+    }
+};
 void inpfile();
 void solve() {
 
