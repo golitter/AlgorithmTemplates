@@ -33,19 +33,8 @@ using namespace std;
      *          --- 雨具说的 2023年8月4日
     */
 
-// #define Multiple_groups_of_examples
-#define dbgnb(a) std::cout << #a << " = " << a << '\n';
 #define IOS std::cout.tie(0);std::cin.tie(0)->sync_with_stdio(false);
-#define dbgtt cout<<" !!!test!!! "<<endl;
-#define rep(i,x,n) for(int i = x; i <= n; i++)
 
-#define all(x) (x).begin(),(x).end()
-#define vf first
-#define vs second
-
-typedef long long LL;
-// #define int long long  // 需要在LL定义之后
-typedef pair<int,int> PII;
 
 const int INF = 0x3f3f3f3f;
 const int N = 2e5 + 21;
@@ -57,27 +46,7 @@ const int MOD = 1e9 + 7;
  *          -2 + 3 ==> 1 % 3 == 1
  */
 
-
-// 当输入数据大于 1e6 时用快读
-inline int fread() // 快读
-{
-    int x = 0, f = 1; char ch = getchar();
-    while(ch < '0' || ch > '9') {if (ch == '-') f = -1; ch = getchar(); }
-    while(ch >= '0' && ch <= '9') {
-        x = x * 10 + (ch - '0');
-        ch = getchar();
-    }
-    return x * f;
-}
-
-namespace direction {
-namespace d8 {
-vector<int> fx({0, 0, 1, 1, 1, -1, -1, -1}), fy({1, -1, 1, 0, -1, 1, 0, -1});
-}
-namespace d4 {
-vector<int> fx({0,0,1,-1}), fy({1,-1,0,0});
-}
-}
+ 
 void numeric() { // 数学
     LL k = 1e17;
     // cmath库里的数学尽量先乘个 1.0
@@ -90,6 +59,7 @@ void numeric() { // 数学
 }
 
 void inpfile();
+
 void solve() {
     
     map<int,int> mii;

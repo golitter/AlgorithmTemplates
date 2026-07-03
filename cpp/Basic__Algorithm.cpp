@@ -2,9 +2,8 @@
  * 不定向输入       UndirectedInput
  * 二分         binary
  * 离散化       discretization
- * 进制转换     conversion
- * 高精度       high_precision
  * 搜索         Bfs_Dfs
+ * 结构体      Adt
  * STL
 */
 #include <iostream>
@@ -111,79 +110,6 @@ void solve() {
 }}
 
 namespace golitter {
-namespace conversion {
-/**
- * @brief 将数制为base的value转为十进制
- * @return 转换为十进制的数
-*/
-int conversion_from_other_2_base10(int base, int value) {
-    string str = to_string(value);
-    int res = 0;
-    int p = 1;
-    int len = str.size();
-    for(int i = len - 1; i >= 0; --i) {
-        res += p * (str[i] - '0');
-        p *= base;
-    }
-    return res;
-}
-/**
- * @brief 将value转换为base进制的数
- * @return 转换为base进制的数
-*/
-int conversion_from_base10_2_other(int value, int base) {
-    string str = "";
-    while(value) {
-        str += value % base + '0';
-        value /= base;
-    }
-    int res = 0;
-    int len = str.size();
-    for(int i = len - 1; i >= 0; --i) {
-        res = res * 10 + str[i] - '0';
-    }
-    return res;
-}
-/**
- * @brief 将数制为A_base的数A_value转为数制为B_base的数B_value
- * @param A_base 将要转换的值的数制类型
- * @param A_value 将要转换的值
- * @param B_base 转换后的数制类型
- * @param B_value 转换后的数值（引用类型）
- * @return void
-*/
-void conversion_from_baseA_2_baseB(int A_base, int A_value, int B_base, int& B_value) {
-    if(A_base != 10) {
-        A_value = conversion_from_other_2_base10(A_base, A_value);
-    }
-    if(B_base != 10) {
-        B_value = conversion_from_base10_2_other(A_value, B_base);
-    } else B_value = A_value;
-    // cout<<"进制: "<<A_base<<" 的数 ( "<<A_value<<" ) 转为 ==> 进制: "<<B_base<<" 的数 ( "<<B_value<<" )"<<endl;
-}
-
-// 由m进制转换成n进制
-string conversion(string num, int m, int n){
-    int l = num.size(), k = 0;
-    string ans = "";
-    for(int i = 0; i < l; ){
-        k = 0;
-        // k是 a/b 的余数，因为在 a/b 的过程中我们要不断更新商的值，所以要不断更新 num[j]
-        // 单纯求余数的话我们 k * m + num[j] 计算若干次就够了
-        for(int j = i; j < l; j ++){
-            int t = (k * m + num[j] - '0') % n;
-            num[j] = (k * m + num[j] - '0') / n + '0';
-            k = t;
-        }
-        ans += (k + '0');
-        // 如果 num[i] == 0 说明商在该位上没有值，比如 0001，那值就是 1，跳过去就好了
-        while(num[i] == '0') i ++;
-    }
-    return ans; // 反转即可
-}
-
-
-}
 
 // 常用二进制操作
 namespace bitwise {
@@ -197,16 +123,30 @@ namespace bitwise {
 }
 
 namespace golitter {
-namespace high_precision {
-/**
- * 使用python char a = 'a'; ord(a) == 97 将字符转为对应的ASCII码
- *                          chr(97) == 'a' 将ascii码转为对应的字符
-*/
 
+namespace Adt_Struct {
 
-}}
+struct Adt {
+    int a,b;
+    bool operator<(const Adt& rhs) const {
+        return a > rhs.a;
+    }
+};
 
+void solve() {
+    // cpp 11 之前
+    vector<Adt> v(3,{Adt{0,0}});
+    v.push_back(Adt{1,2});
+    v[3] = Adt{3,4};
 
+    // cpp 11 之后
+    vector<Adt> v(3,{0,0});
+    v.push_back({1,2});
+    v[3] = Adt{3,4};
+} 
+
+}
+}
 
 #include <vector>
 #include <stack>
