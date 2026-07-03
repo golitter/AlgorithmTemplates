@@ -54,7 +54,14 @@ void dfs(int u) {
 
 
 // 邻接表
-vector<vector<int>> adj;
+vector<vector<int>> adj(3);
+/**
+    vector<vector<int> > adj(3); 表示向量，每一个向量类型是 vector<int>，所以adj是一个二维向量，里面有3个一维向量，每个一维向量里面的元素类型是int。
+    vector<vector<int>> adj[3]; 表示数组，adj是一个数组，里面有3个元素，每个元素的类型是 vector<vector<int>>，也就是一个二维向量。
+    vector<int> adj[3]; 表示数组，adj是一个数组，里面有3个元素，每个元素的类型是 vector<int>，也就是一个一维向量。
+        
+        vector<vector<int>> adj(3) 约等于 vector<int> adj[3]，都是表示一个有3个元素的数组，每个元素是一个一维向量。
+*/
 void add() {
     int u,v;
     adj[u].push_back(v);
