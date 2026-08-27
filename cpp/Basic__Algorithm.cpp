@@ -149,6 +149,7 @@ void solve() {
 }
 
 #include <vector>
+#include <list>
 #include <stack>
 #include <queue>
 #include <set>
@@ -171,6 +172,18 @@ void Vector() {
         * push_back()
         * pop_back()
         * back()
+    */
+}
+void List() {
+    /**
+     * list<int> lst; 双向链表
+     * 插入/删除不使其他迭代器失效，定位后插删 O(1)
+     * 不支持 []，不能用 std::sort（用成员函数 lst.sort()）
+     * push_front() push_back() pop_front() pop_back() front() back() size() clear()
+     * insert(it, v)   在 it 前插入
+     * erase(it)       ** it = lst.erase(it) 接住返回值 **
+     * remove(v) remove_if(cond)   删除元素
+     * splice(pos, lst, it)        O(1) 剪切节点
     */
 }
 void String() {
